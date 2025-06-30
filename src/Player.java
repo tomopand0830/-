@@ -29,16 +29,21 @@ public class Player extends Character implements KeyListener
 		GameWorld.playerBullets.add(new PlayerBullet(x,y,0,-10));
 		System.out.println("弾の数"+GameWorld.playerBullets.size());
 		}
-		/*if(e.getKeyCode()==KeyEvent.VK_V) 
+		if(e.getKeyCode()==KeyEvent.VK_ENTER) 
 		{
-		GameWorld.playerBullets.add(new PlayerBullet(x,y,20,-10));
+			System.out.println("Enterキーが押されました");
+			GameWorld.enterPressed =true;
+		}
+		if(e.getKeyCode()==KeyEvent.VK_V) 
+		{
+		GameWorld.playerBullets.add(new PlayerBullet(x+5,y,0,-10));
 		System.out.println("弾の数"+GameWorld.playerBullets.size());
 		}
 		if(e.getKeyCode()==KeyEvent.VK_C) 
 		{
-		GameWorld.playerBullets.add(new PlayerBullet(x,y,-20,-10));
+		GameWorld.playerBullets.add(new PlayerBullet(x-5,y,0,-10));
 		System.out.println("弾の数"+GameWorld.playerBullets.size());
-		}*/
+		}
 	}
 	public void keyReleased(KeyEvent e) 
 	{

@@ -76,6 +76,11 @@ public class MyFrame extends Frame implements Runnable {
 			t.start();
 		}
 	}
+	
+	public void update(Graphics g) {
+		paint(g);
+	}
+	
 	/**
 	 * 四角形を描画する。色はsetColor で指定。
 	 * @param x
@@ -83,6 +88,9 @@ public class MyFrame extends Frame implements Runnable {
 	 * @param w
 	 * @param h
 	 */
+	
+
+	
         public synchronized void fillRect(double x, double y, double w, double h) {
                fillRect((int) x, (int) y, (int) w, (int) h);
         }
@@ -92,11 +100,8 @@ public class MyFrame extends Frame implements Runnable {
 			g.setColor(col);
 			g.fillRect(x, y, w, h);
 		}
-		g=getGraphics();
-		if (g!=null) {
-			g.setColor(col);
-			g.fillRect(x, y, w, h);
-		}
+
+		repaint();
 	}
 	public synchronized void clear() {
 		Color s=col;
@@ -110,11 +115,8 @@ public class MyFrame extends Frame implements Runnable {
 			g.setColor(col);
 			g.fillOval(x, y, w, h);
 		}
-		g=getGraphics();
-		if (g!=null) {
-			g.setColor(col);
-			g.fillOval(x, y, w, h);
-		}
+
+repaint();
 	}
 	private Graphics getImageGraphics() {
 		return im.getGraphics();
