@@ -37,7 +37,10 @@ if(Math.random()<0.03)
 {
 GameWorld.enemies.add(new CurveEnemy(x,y,0,GameWorld.stage));	
 }	
-
+if(Math.random()<0.03) 
+{
+GameWorld.enemies.add(new NewEnemy(x,y,0,GameWorld.stage));	
+}	
 	
 }
 }
