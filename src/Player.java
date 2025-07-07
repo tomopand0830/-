@@ -24,6 +24,14 @@ public class Player extends Character implements KeyListener
 		{
 		vx =5;	
 		}
+		if(e.getKeyCode()==KeyEvent.VK_UP) 
+		{
+		vy =-2;	
+		}
+		if(e.getKeyCode()==KeyEvent.VK_DOWN) 
+		{
+		vy =2;	
+		}
 		if(e.getKeyCode()==KeyEvent.VK_SPACE) 
 		{
 		GameWorld.playerBullets.add(new PlayerBullet(x,y,0,-10));
@@ -34,15 +42,26 @@ public class Player extends Character implements KeyListener
 			System.out.println("Enterキーが押されました");
 			GameWorld.enterPressed =true;
 		}
-		if(e.getKeyCode()==KeyEvent.VK_V) 
-		{
-		GameWorld.playerBullets.add(new PlayerBullet(x+5,y,0,-10));
-		System.out.println("弾の数"+GameWorld.playerBullets.size());
+		if(e.getKeyCode() == KeyEvent.VK_V) {
+			if (GameWorld.score >= 10) {
+				GameWorld.playerBullets.add(new PlayerBullet(x + 10, y, 0, -10));
+			} else {
+				System.out.println("スコアが足りません！（10必要）");
+			}
 		}
-		if(e.getKeyCode()==KeyEvent.VK_C) 
-		{
-		GameWorld.playerBullets.add(new PlayerBullet(x-5,y,0,-10));
-		System.out.println("弾の数"+GameWorld.playerBullets.size());
+		if(e.getKeyCode() == KeyEvent.VK_C) {
+			if (GameWorld.score >= 50) {
+				GameWorld.playerBullets.add(new PlayerBullet(x - 10, y, 0, -10));        
+			} else {
+				System.out.println("スコアが足りません！（50必要）");
+			}
+		}
+		if(e.getKeyCode() == KeyEvent.VK_B) {
+			if (GameWorld.score >= 100) {
+				GameWorld.playerBullets.add(new PlayerBullet(x - 20, y, 0, -10));        
+			} else {
+				System.out.println("スコアが足りません！（100必要）");
+			}
 		}
 	}
 	public void keyReleased(KeyEvent e) 
@@ -54,6 +73,14 @@ public class Player extends Character implements KeyListener
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT) 
 		{
 		vx =0;	
+		}
+		if(e.getKeyCode()==KeyEvent.VK_UP) 
+		{
+		vy =0;	
+		}
+		if(e.getKeyCode()==KeyEvent.VK_DOWN) 
+		{
+		vy =0;	
 		}
 	}
 	public void keyTyped(KeyEvent e) {}

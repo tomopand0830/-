@@ -37,10 +37,12 @@ if(Math.random()<0.03)
 {
 GameWorld.enemies.add(new CurveEnemy(x,y,0,GameWorld.stage));	
 }	
-if(Math.random()<0.03) 
+if(Math.random()<0.003) 
 {
 GameWorld.enemies.add(new NewEnemy(x,y,0,GameWorld.stage));	
-}	
-	
+}if(Math.random()<0.003) 
+{
+GameWorld.enemies.add(new sinigami(x,y,0,GameWorld.stage));	
+}
 }
 }
