@@ -13,6 +13,6 @@ public class StraightEnemy extends Enemy{
 	{
 		super(x,y,vx,vy);
 		life=5;
+		score=2;
 	}
-
 }

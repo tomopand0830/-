@@ -15,7 +15,7 @@ public class NewEnemy extends Enemy
 	
 	public NewEnemy(double x, double y, double vx, double vy) {
 		super(x, y, vx, vy);
-		life=1;
+		life=10;
 		score=5;
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
