@@ -32,17 +32,42 @@ public class Player extends Character implements KeyListener
 		{
 		vy =2;	
 		}
-		if(e.getKeyCode()==KeyEvent.VK_SPACE) 
-		{
-		GameWorld.playerBullets.add(new PlayerBullet(x,y,0,-10));
-		System.out.println("弾の数"+GameWorld.playerBullets.size());
+		
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			// 弾の発射位置と数をスコアに応じて変化
+			if (GameWorld.score >= 100) {
+				// 5発（拡散型）
+				GameWorld.playerBullets.add(new PlayerBullet(x - 20, y, 0, -10));
+				GameWorld.playerBullets.add(new PlayerBullet(x - 10, y, -2, -10));
+				GameWorld.playerBullets.add(new PlayerBullet(x, y, 0, -10));
+				GameWorld.playerBullets.add(new PlayerBullet(x + 10, y, 2, -10));
+				GameWorld.playerBullets.add(new PlayerBullet(x + 20, y, 0, -10));
+			} else if (GameWorld.score >= 50) {
+				// 3発（左右+中央）
+				GameWorld.playerBullets.add(new PlayerBullet(x - 10, y, 0, -10));
+				GameWorld.playerBullets.add(new PlayerBullet(x, y, 0, -10));
+				GameWorld.playerBullets.add(new PlayerBullet(x + 10, y, 0, -10));
+			} else if (GameWorld.score >= 10) {
+				// 2発（左右）
+				GameWorld.playerBullets.add(new PlayerBullet(x - 10, y, 0, -10));
+				GameWorld.playerBullets.add(new PlayerBullet(x + 10, y, 0, -10));
+			} else {
+				// 1発（中央）
+				GameWorld.playerBullets.add(new PlayerBullet(x, y, 0, -10));
+			}
+			System.out.println("弾の数" + GameWorld.playerBullets.size());
 		}
 		if(e.getKeyCode()==KeyEvent.VK_ENTER) 
 		{
 			System.out.println("Enterキーが押されました");
 			GameWorld.enterPressed =true;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_V) {
+		/*if(e.getKeyCode()==KeyEvent.VK_SPACE) 
+		{
+		GameWorld.playerBullets.add(new PlayerBullet(x,y,0,-10));
+		System.out.println("弾の数"+GameWorld.playerBullets.size());
+		}*/
+		/*if(e.getKeyCode() == KeyEvent.VK_V) {
 			if (GameWorld.score >= 10) {
 				GameWorld.playerBullets.add(new PlayerBullet(x + 10, y, 0, -10));
 			} else {
@@ -62,7 +87,7 @@ public class Player extends Character implements KeyListener
 			} else {
 				System.out.println("スコアが足りません！（100必要）");
 			}
-		}
+		}*/
 	}
 	public void keyReleased(KeyEvent e) 
 	{
